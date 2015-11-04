@@ -2,17 +2,20 @@ class Flower{
   float xpos;
   float ypos;
   float scale; 
+  float rotatespeed;
   //Constructor
-  Flower(float xpos, float ypos, float scale){
+  Flower(float xpos, float ypos, float scale, float rotatespeed){
     this.xpos = xpos;
     this.ypos = ypos;
     this.scale = scale;
+    this.rotatespeed = rotatespeed;
   }
   
   void display(){
     pushMatrix();
     scale(scale);
     translate(xpos, ypos);
+    rotate(radians(random(360) + rotatespeed);
     for (int i = 50; i > 0; i-=10) {
       for (int q = 0; q < 360; q+=18) {
         float x = sin(radians(q+i));
