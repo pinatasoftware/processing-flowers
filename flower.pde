@@ -1,14 +1,17 @@
 class Flower{
   float xpos;
   float ypos;
+  float scale; 
   //Constructor
-  Flower(float xpos, float ypos){
+  Flower(float xpos, float ypos, float scale){
     this.xpos = xpos;
     this.ypos = ypos;
+    this.scale = scale;
   }
   
   void display(){
     pushMatrix();
+    scale(scale);
     translate(xpos, ypos);
     for (int i = 50; i > 0; i-=10) {
       for (int q = 0; q < 360; q+=18) {

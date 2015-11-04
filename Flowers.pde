@@ -3,8 +3,8 @@ Flower flower2;
 
 void setup() {
   size(640, 640);
-  flower = new Flower(50, 50);
-  flower2 = new Flower(width/2, height/2);
+  flower = new Flower(50, 50, 0.5);
+  flower2 = new Flower(width/2, height/2, 0.75);
 }
  
 void draw() {
