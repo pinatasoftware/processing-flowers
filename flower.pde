@@ -1,21 +1,25 @@
-class Flower{
-  float xpos;
-  float ypos;
+class Flower{  
+  PVector location;
+  PVector velocity;
   float scale; 
   float rotatespeed;
+  float rotatedegrees;
+  
   //Constructor
-  Flower(float xpos, float ypos, float scale, float rotatespeed){
-    this.xpos = xpos;
-    this.ypos = ypos;
+  Flower(float scale, float rotatespeed){
+    location = new PVector(random(width),random(height));
+    velocity = new PVector(random(-2,2),random(-2,2));
     this.scale = scale;
     this.rotatespeed = rotatespeed;
+    rotatedegrees = random(360);
   }
   
   void display(){
     pushMatrix();
     scale(scale);
-    translate(xpos, ypos);
-    rotate(radians(random(360) + rotatespeed);
+    translate(location.x, location.y);
+    rotate(radians(rotatedegrees += rotatespeed) );
+    println(rotatedegrees);
     for (int i = 50; i > 0; i-=10) {
       for (int q = 0; q < 360; q+=18) {
         float x = sin(radians(q+i));
@@ -42,6 +46,10 @@ class Flower{
       }
     } 
     popMatrix();
+  }
+  
+  void move(){
+    location.add(velocity);
   }
   
 }
