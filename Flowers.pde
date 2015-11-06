@@ -1,4 +1,4 @@
-Flower[] flowers = new Flower[1]; 
+Flower[] flowers = new Flower[4]; 
 
 void setup() {
   //size(640, 640);
@@ -8,7 +8,7 @@ void setup() {
 
    //initializing flowers  
    for (int i = 0; i < flowers.length; i++ ) {
-     flowers[i] = new Flower(width/2, height/2, random(2,3), 0.7, random(-2,2));
+     flowers[i] = new Flower(width/2, height/2, random(2,3), 1, random(-2,2));
    } 
   
 }
