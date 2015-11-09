@@ -1,4 +1,4 @@
-Flower[] flowers = new Flower[4]; 
+Flower[] flowers = new Flower[3]; 
 
 void setup() {
   //size(640, 640);
@@ -14,7 +14,7 @@ void setup() {
 }
  
 void draw() {
-  fill(0,255);
+  fill(0,250);
   rect(0, 0, width, height);
   
   PVector gravity = new PVector(0,0.1);
