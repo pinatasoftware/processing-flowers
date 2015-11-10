@@ -1,14 +1,15 @@
 import processing.video.*;
-ArrayList<Skull> skulls = new ArrayList<Skull>();
+PFont font;
 PImage img; //for skull
 PImage imgBackground; //for frame
 PImage imgBackgroundColors; //for opacity colors
+ArrayList<Skull> skulls = new ArrayList<Skull>(); //skulls array list
 
 Movie movieBackground;
 
 void setup() {
-  //size(640, 640);
-  fullScreen();
+  size(640, 640);
+  //fullScreen();
   imgBackground = loadImage("backgroundwhite.png");
   imgBackgroundColors = loadImage("skullbackground.png");
   movieBackground = new Movie(this, "videoBackground00.mov");
