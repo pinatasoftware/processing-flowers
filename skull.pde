@@ -31,6 +31,7 @@ class Skull {
     pushMatrix();
     translate(location.x, location.y);
     rotate(radians(rotatedegrees += rotatespeed) );
+    imageMode(CENTER);
     image(img, 0, 0, size, size);
     popMatrix();
   }
@@ -49,24 +50,22 @@ class Skull {
   }
   
     void checkEdges() {
-    pushMatrix();
-    if (location.x > width - size) {
-      location.x = width - size;
-      velocity.x *= -1;
-    } else if (location.x < 0 + size-size) {
-      velocity.x *= -1;
-      location.x = 0 + size;
+      if (location.x > width) {
+        location.x = width;
+        velocity.x *= -1;
+      } else if (location.x < 0) {
+        velocity.x *= -1;
+        location.x = 0;
+      }
+      
+      if (location.y > height) {
+        velocity.y *= -1;
+        location.y = height;
+      } else if(location.y < 0){
+        velocity.y *= 1;
+        location.y = 0;
+      }
     }
-
-    if (location.y > height - size) {
-      velocity.y *= -1;
-      location.y = height - size;
-    } else if(location.y < 0 + size){
-      velocity.y *= -1;
-      location.y = 0 + size;
-    }
-    popMatrix();
-  }
   
   
   
