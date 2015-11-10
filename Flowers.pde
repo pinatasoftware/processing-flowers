@@ -14,6 +14,8 @@ void setup() {
   imgBackgroundColors = loadImage("skullbackground.png");
   movieBackground = new Movie(this, "videoBackground00.mov");
   movieBackground.loop();
+  font = loadFont("BebasNeueBold.vlw");
+  textFont(font, 32);
 }
  
 void draw() {
@@ -41,10 +43,18 @@ void draw() {
     skulls.get(i).checkEdges();
   }
   
+ //COUNTER
+  fill(255,0,128);
+  textAlign(CENTER);
+  textSize(180);
+  if(skulls.size() > 0){
+    text(skulls.size(), width/2, height/2);  
+  } else {
+    text("@MAGIOBUS", width/2, height/2, 150);
+  }
   
   println(skulls.size());
-  
- 
+     
 }
 
 // Called every time a new frame is available to read
@@ -56,5 +66,12 @@ void movieEvent(Movie m) {
 
 void mousePressed() {
   
-  skulls.add( new Skull(random(width/2), random(height/2), random(2,3), random(80,200), random(-2,2), "GreenSkull.png") );
+  skulls.add( new Skull(random(width/2), random(height/2), random(2,3), random(80,200), random(-2,2), "folkerskull.png") );
+}
+//erases last skull
+void keyPressed(){
+  if(skulls.size() > 0){
+    skulls.remove(skulls.size()-1);
+  } else{
+  }
 }
