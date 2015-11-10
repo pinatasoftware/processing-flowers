@@ -1,34 +1,45 @@
 import processing.video.*;
 ArrayList<Skull> skulls = new ArrayList<Skull>();
-PImage img;
-PImage imgBackground;
+PImage img; //for skull
+PImage imgBackground; //for frame
+PImage imgBackgroundColors; //for opacity colors
 
 Movie movieBackground;
 
 void setup() {
-  size(640, 640);
-  //fullScreen();
- 
-  movieBackground = new Movie(this, "lasaladenacho.mp4");
+  //size(640, 640);
+  fullScreen();
+  imgBackground = loadImage("backgroundwhite.png");
+  imgBackgroundColors = loadImage("skullbackground.png");
+  movieBackground = new Movie(this, "videoBackground00.mov");
   movieBackground.loop();
-     
-
 }
  
 void draw() {
   fill(0,250);
   rect(0, 0, width, height);
+  //VIDEO
   pushMatrix();
   imageMode(CORNERS);
   image(movieBackground, 0, 0, width, height);
-  popMatrix();
+  //BACKGROUNDIMAGE
+  tint(255, random(5,40));  // Display at half opacity
+  image(imgBackgroundColors, 0, 0, width, height);
+  popMatrix();  
   //PVector gravity = new PVector(0,0.1);
   
+
+    tint(255, 255);  // Display at full opacity
+  //BACKGROUND FRAME IMAGE
+  image(imgBackground, 0, 0, width, height);
+
+
   for(int i=0; i<skulls.size(); i++){
     skulls.get(i).display();
     skulls.get(i).move();
     skulls.get(i).checkEdges();
   }
+  
   
   println(skulls.size());
   
