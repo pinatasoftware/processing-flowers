@@ -1,6 +1,7 @@
 import processing.video.*;
 ArrayList<Skull> skulls = new ArrayList<Skull>();
 PImage img;
+PImage imgBackground;
 
 Movie movieBackground;
 
